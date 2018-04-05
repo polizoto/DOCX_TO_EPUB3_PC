@@ -1,5 +1,5 @@
-# DOCX_TO_EPUB3
-Convert DOCX files to EPUB 3 book
+# DOCX_TO_EPUB3_PC
+Convert DOCX files to EPUB 3 book (on a PC)
 
 ## Dependencies
 

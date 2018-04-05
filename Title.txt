@@ -1,0 +1,21 @@
+﻿---
+title:
+- type: main
+  text: Automating the Creation of EPUB 3 Books
+- type: subtitle
+  text: DOCX to EPUB3 Conversion
+creator:
+- role: author
+  text: Joseph Polizzotto
+- role: editor
+  text: HTCTU
+identifier:
+- scheme: DOI
+  text: doi:10.234234.234/33
+publisher:  High Tech Center Training Unit
+rights: © 2018 HTCTU, CC BY-NC
+language: en-US
+source: urn:isbn:12345678
+ibooks:
+  version: 1.1.3
+...

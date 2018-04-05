@@ -3,6 +3,9 @@ Convert DOCX files to EPUB 3 book
 
 ## Dependencies
 
+- 7Zip: https://www.7-zip.org/
+	- 7zip is a command line tool for zipping and unzipping files and folders
+	- In our script, we use 7zip to unzip an EPUB and perform find and replace adjustments to the EPUB; we then rezip the book into an EPUB3
 - pandoc: https://github.com/jgm/pandoc/releases/tag/2.1.2
 	- Pandoc is a file converter command line program
 	- In our script, we are converting DOCX files to Markdown; then we are converting Markdown to EPUB3

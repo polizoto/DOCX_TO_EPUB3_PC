@@ -79,7 +79,7 @@ Note: make the script executable by opening a terminal and entering the followin
 
 	(Repeat step 4 until every chapter of the book has been corrected and edited)
 
-5. Use the bash script (DOCX_to_EPUB3.sh) to convert the DOCX files for each chapter into an EPUB 3 book (find the script attached to this email)
+5. Use the bash script (DOCX_To_EPUB3_PC.sh) to convert the DOCX files for each chapter into an EPUB 3 book
 
 	- To run the script: open a terminal and enter this command from the root directory
 		- ./DOCX_To_EPUB3_PC.sh

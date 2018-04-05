@@ -40,6 +40,8 @@ Note: make the script executable by opening a terminal and entering the followin
 `creator:`
 `publisher:` etc.
 
+(See Title.txt file in this repo for an example of a YAML metadata block)
+
 - Place the Title.txt file in the root folder
 - Note: if you are using a different name or format for your metadata document, make sure to adjust the script (see below) so that the pandoc command contains the correct name and file extension (the default name for your metadata file in the script is "Title.txt")
 

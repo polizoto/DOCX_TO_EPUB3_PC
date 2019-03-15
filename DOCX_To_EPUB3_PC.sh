@@ -9,7 +9,7 @@ for d in ./*/*;
 
 do 
 
-find . -name '*.DOCX' -type f -exec pandoc --extract-media={}_media -o {}.markdown {} \;
+find . -name '*.docx' -type f -exec pandoc --extract-media={}_media -o {}.markdown {} \;
 
 find . -name '*.markdown' -type f -exec sed -i 's/\\\\/\\/g' {} \;
 
@@ -19,7 +19,7 @@ find . -name '*.markdown' -type f -exec sed -i 's/\\^/^/g' {} \;
 
 find . -name '*.markdown' -type f -exec sed -i 's/\\_/_/g' {} \;
 
-find ./*chapter/ -name '*.markdown' -exec pandoc -t epub3 --epub-cover-image=./cover.png -o ./EPUB3_book.epub ./Title.txt --toc --toc-depth=2 {} +
+find . -name '*.markdown' -exec pandoc -t epub3 --epub-cover-image=./cover.png -o ./EPUB3_book.epub ./Title.txt --toc --toc-depth=2 {} +
 
 mv EPUB3_book.epub EPUB3_book.zip
 

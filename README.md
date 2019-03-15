@@ -6,11 +6,12 @@ Convert .docx file to EPUB 3 book (on a PC)
 - 7Zip: https://www.7-zip.org/
 	- 7zip is a command line tool for zipping and unzipping files and folders
 	- In our script, we use 7zip to unzip an EPUB and perform find and replace adjustments to the EPUB; we then rezip the book into an EPUB3
-- pandoc: https://github.com/jgm/pandoc/releases/tag/2.1.2
+- pandoc: https://github.com/jgm/pandoc/releases/tag/2.7.1
 	- Pandoc is a file converter command line program
 	- In our script, we are converting a docx file to Markdown; then we are converting Markdown to EPUB3
 - ACE accessibility checker (uses Node.js): https://inclusivepublishing.org/toolbox/accessibility-checker/getting-started/#installation
 	- ACE is a command line program for checking your EPUB against the Accessibility Standards (i.e., WCAG 2.0, EPUB 3.1)
+	- Our script runs ACE on the EPUB, producing a report folder where you can view any errors and/or issues 
 
 Note: make the script executable by opening a terminal and entering the following command:
 		- chmod + path/to/script.sh

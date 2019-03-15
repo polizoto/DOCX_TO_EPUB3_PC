@@ -17,18 +17,13 @@ Note: make the script executable by opening a terminal and entering the followin
 
 ## Usage
 
-1. Create a folder directory
+1. Create a folder directory which include the .docx file you wish to convert
 
 - Root Folder/
 	- Title.txt
 	- cover.png
 	- cover.txt
-	- 01_chapter/
-		- 01_chapter.docx
-	- 02_chapter/
-		- 02_chapter.docx
-	- 03_chapter/
-		- 03_chapter.docx etc.
+	- my_file.docx
 
 2. Create a metadata file for your EPUB (e.g., Title.txt)
 
@@ -52,14 +47,14 @@ Note: make the script executable by opening a terminal and entering the followin
 	- Edit the Cover.txt file for the appropriate alternate text for the Cover.png
 		- e.g., alt="EPUB logo"
 
-4. Edit the chapter files in MS Word
+4. Edit the .docx file in MS Word
 
 	- add heading structure
 		- mark page number as Heading #6 (if you added the word "page" in front of the page number (in ABBYY), you can do a regex find and replace (find what:page\ [0-9]; replace with: heading style 6) to convert all the page numbers to a Heading
 	- format tables (repeat header row)
 	- add alternate text for images
 	- create math equations using MathType; then delete the image placeholder for the math
-		- When all the equations have been entered, use the convert equations button (on the MathType ribbon)
+		- When all the equations have been entered, use the convert equations button (on the MathType ribbon) OR Use GrindEQ MathType to MS Word Equation Tool.
 			- select: MathType equations
 			- Select Range: Whole document
 			- Convert equations to Texvc(LaTeX delimiters)
@@ -79,24 +74,30 @@ Note: make the script executable by opening a terminal and entering the followin
 
 	(Repeat step 4 until every chapter of the book has been corrected and edited)
 
-5. Use the bash script (DOCX_To_EPUB3_PC.sh) to convert the DOCX files for each chapter into an EPUB 3 book
+5. Use the bash script (DOCX_To_EPUB3_PC.sh) to convert the DOCX file into an EPUB 3 book
 
 	- To run the script: open a terminal and enter this command from the root directory
 		- ./DOCX_To_EPUB3_PC.sh
 		- Press enter and wait for the script to execute
 	- The script performs these functions:
-		- Converts docx files to Markdown 
+		- Converts docx file to Markdown 
 			- Note: Currently Pandoc cannot convert a DOCX file with LaTex Math to MathML when EPUB 3 is the output format specified; Pandoc has no problem, however, converting Markdown files + Latex to MathML when exporting to EPUB3
 		- Corrects LaTeX syntax after Pandoc conversion from DOCX to Markdown
-		- Converts Markdown files to EPUB 3
+		- Converts Markdown file to EPUB 3
 		- Adds epub:type markup to page numbers in document
 		- creates a page-list nav section to NAV document
 		- adds accessibility metadata to the package document
 		- adds custom alternate text for the cover image
-		- adds xml:lang attribute to all XHTML files, including up to four languages
+		- adds xml:lang attribute to the XHTML files, including up to four languages
 		- Runs the ACE accessibility checker by DAISY to create an accessibility report on the EPUB 3 book
 
-6. (OPTIONAL) Use Sigil to correct / edit EPUB information for accessibility 
+6. Check the ACE accessibility report to confirm that there are no errors:
+
+	- The script will run the ACE tool on the EPUB and output it to a "Report" folder
+	- Correct any errors in the EPUB (see next step)
+	- Once the EPUB book has no errors, change the name of the EPUB to the name of the book
+	
+7. (OPTIONAL) Use Sigil to correct / edit EPUB information for accessibility 
 
 - Note: our script adds this information automatically but there is need for human editing to confirm the access mode, accessibility summary, add accessibility features, accessibility hazards etc.
 - Here are some example items that you may wish to edit/ add:
@@ -106,15 +107,12 @@ Note: make the script executable by opening a terminal and entering the followin
 `<meta property="schema:accessModeSufficient">textual,visual</meta>`
 `<meta property="schema:accessibilityFeature">MathML</meta>`
 - Save the Ebook and exit Sigil
-
-7. (Optional) Use the ACE accessibility checker again to confirm that there are no errors:
-
-	- ace ./EPUB3_book.epub -o ./report
-	- Once the EPUB book has no errors, change the name of the EPUB to the name of the book
 	
-8. Open the book in an EPUB reading system that supports MathML
+8. Open the book in an EPUB reading system of your choice
 
-	- Use the Book Industry Standards Group website (www.BISG.org) to check which reading systems support MathML
-	- we recommend the following reading systems that support MathML:
-		- Vital Source Bookshelf
-		- iBooks
+	- Use the Book Industry Standards Group website (www.BISG.org) to check which reading systems support the EPUB features included in your book.
+	- we recommend using the following reading systems:
+		- Vital Source Bookshelf (cross-platform)
+		- iBooks (macOS and iOS)
+		- MS Edge (PC)
+		- Easy Reader app (iOS)

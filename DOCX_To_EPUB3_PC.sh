@@ -77,6 +77,9 @@ find . -name 'ch*.xhtml' -type f -exec sed -i 's/" >page-/" title="page /' {} \;
 
 find . -name 'ch*.xhtml' -type f -exec sed -i 's/ >/>/' {} \;
 
+# remove spurious characters that adds > symbol
+find . -name 'ch*.xhtml' -type f -exec sed -i 's/&gt; //g' {} \;
+
 # Add title elements to Cover and Title Pages
 
 find . -name 'title_page.xhtml' -type f -exec sed -i 's/<title>Title<\/title>/<title>Title Page<\/title>/g' {} \;
@@ -94,6 +97,9 @@ find . -name 'content.opf' -type f -exec sed -i 's/<metadata xmlns:dc="http:\/\/
 find . -name 'content.opf' -type f -exec sed -i 's/<metadata xmlns:dc="http:\/\/purl.org\/dc\/elements\/1.1\/" xmlns:opf="http:\/\/www.idpf.org\/2007\/opf">/<metadata xmlns:dc="http:\/\/purl.org\/dc\/elements\/1.1\/" xmlns:opf="http:\/\/www.idpf.org\/2007\/opf"> <meta property="schema:accessibilityFeature">MathML<\/meta>/g' {} \;
 
 find . -name 'content.opf' -type f -exec sed -i 's/<metadata xmlns:dc="http:\/\/purl.org\/dc\/elements\/1.1\/" xmlns:opf="http:\/\/www.idpf.org\/2007\/opf">/<metadata xmlns:dc="http:\/\/purl.org\/dc\/elements\/1.1\/" xmlns:opf="http:\/\/www.idpf.org\/2007\/opf"> <meta property="schema:accessibilityFeature">structuralNavigation<\/meta>/g' {} \;
+
+# Suppress the numbering the page numbers in the listnav
+find . -name '*.css' -type f -exec sed -i 's/nav#landmarks/nav#pagelist/g' {} \;
 
 # Remove First </section> closing tag
 

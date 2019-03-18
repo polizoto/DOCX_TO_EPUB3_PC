@@ -182,6 +182,8 @@ mv EPUB3_book.zip EPUB3_book.epub
 
 rm -R ./EPUB3_book
 
+rm *.markdown
+
 ace ./EPUB3_book.epub -o ./report  --force
 
 kill -9 $PPID
